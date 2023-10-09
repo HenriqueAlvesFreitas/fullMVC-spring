@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>EpicTask</title>
+</head>
+<body class="grey lighten-3">
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Epic Task</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="/task">Pendentes</a></li>
+            <li><a href="#">Concluidas</a></li>
+            <li><a href="#">Usuarios</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+
+        <div class="card-panel teal accent-3" th:of="${sucess}" th:text="${success}"></div>
+        <div class="card-panel red darken-1 text-white" th:of="${error}" th:text="${error}"></div>
+        <h2>Tarefas Pendentes</h2>
+
+        <div class="row">
+            <div class="col s12 m6" th:each="Task: ${Tasks}" >
+                <div class="card">
+                    <div class="card-content">
+                        <div class="progress">
+                            <div class="determinate" th:style="${'width:' + Task.status + '%'}"></div>
+                        </div>
+                    <span class="card-title" th:text="${Task.title}"></span>
+                        <p th:text="${Task.description}">
+                         
+                        </p>
+                        <span data-badge-caption="points" class="badge blue white-text" th:text="${Task.score}"></span>
+                    </div>
+
+                    <div class="card-action">
+                        <a th:href="${'/task/delete/' + Task.id}}" class="btn red">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed-action-btn">
+            <a class="btn-floating "></a>
+        </div>
+      </div>
+
+    
+  
+
+</body>
+</html>

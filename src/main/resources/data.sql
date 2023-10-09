@@ -1,0 +1,3 @@
+INSERT INTO TASK (TITLE, DESCRIPTION, SCORE) VALUES ('Prototipo', 'Criar no figma', 50);
+INSERT INTO TASK (TITLE, DESCRIPTION, SCORE, STATUS) VALUES ('DD', 'Modelar Banco de dados', 100, 30);
+INSERT INTO TASK (TITLE, DESCRIPTION, SCORE) VALUES ('Testes', 'Fazer os Testes unitarios', 20);
